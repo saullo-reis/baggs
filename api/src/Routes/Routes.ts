@@ -1,5 +1,6 @@
 import { Router } from 'express'
-import { register } from '../Middlewares/Register'
+import { login } from '../Controllers/Login'
+import { register } from '../Controllers/Register'
 
 const router = Router()
 
@@ -8,5 +9,6 @@ router.get('/', (__, res) => {
 })
 
 router.post('/register', register)
+router.get('/login', login)
 
 export {router}
