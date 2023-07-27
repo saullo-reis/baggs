@@ -14,6 +14,6 @@ app.use(cors({
 app.use(express.json());
 app.use(router)
 
-app.listen(process.env.PORT, () => {
-    console.log('Server rolando')
-})
+
+
+export { app }
