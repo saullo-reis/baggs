@@ -7,11 +7,13 @@ const database = mysql.createConnection({
     database: 'baggs'
 })
 
+
+
 database.connect();
 
-database.query('CREATE TABLE IF NOT EXISTS enterprises (\
+database.query('CREATE TABLE IF NOT EXISTS companies (\
     id INTEGER AUTO_INCREMENT PRIMARY KEY,\
-    NAME_ENTERPRISE VARCHAR(255) NOT NULL UNIQUE,\
+    NAME_COMPANY VARCHAR(255) NOT NULL UNIQUE,\
     PASSWORD TEXT,\
     CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\
     EMAIL VARCHAR(255) NOT NULL UNIQUE\
@@ -22,7 +24,7 @@ database.query('CREATE TABLE IF NOT EXISTS enterprises (\
 
 database.query('create table IF NOT EXISTS inventory (\
     id_item INTEGER AUTO_INCREMENT PRIMARY KEY,\
-    ID_ENTERPRISE INTEGER NOT NULL UNIQUE,\
+    ID_COMPANY INTEGER NOT NULL UNIQUE,\
     NAME_ITEM VARCHAR(255) NOT NULL,\
     QNT_ITEM INTEGER,\
     QNT_MIN_ITEM INTEGER\
