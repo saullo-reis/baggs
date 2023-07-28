@@ -1,13 +1,15 @@
 import { Request, Response } from "express";
 import sha256 from "sha256";
-import { database } from "../Database/Database";
+import { connectionDatabase } from "../Database/index";
 import { StatusCodes } from 'http-status-codes'
+
+const connection = connectionDatabase()
 
 function checkEmailExist(email: string): Promise<boolean> {
     const query = 'SELECT EMAIL FROM companies WHERE EMAIL = ?'
 
     return new Promise((resolve, reject) => {
-        database.query(query, email, (err, results) => {
+        connection.query(query, email, (err, results) => {
             if (err) {
                 console.error(err)
                 reject(err)
@@ -22,7 +24,7 @@ function checkPasswordIsCorrect(email: string, password: string): Promise<boolea
     const query = 'SELECT PASSWORD FROM companies WHERE email = ?'
 
     return new Promise((resolve, reject) => {
-        database.query(query, email, (err, results) => {
+        connection.query(query, email, (err, results) => {
             if (err) {
                 console.error(err)
                 reject(err)
