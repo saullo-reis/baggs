@@ -1,13 +1,13 @@
 import mysql from 'mysql'
 
-const database = mysql.createConnection({
+const databaseTeste = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '123456',
-    database: 'baggs'
+    database: 'baggsTeste'
 })
 
-const creatingTableCompanies = () => database.query('CREATE TABLE IF NOT EXISTS companies (\
+const creatingTableCompaniesTeste = () => {databaseTeste.query('CREATE TABLE IF NOT EXISTS companies (\
     id INTEGER AUTO_INCREMENT PRIMARY KEY,\
     NAME_COMPANY VARCHAR(255) NOT NULL UNIQUE,\
     PASSWORD TEXT,\
@@ -16,10 +16,9 @@ const creatingTableCompanies = () => database.query('CREATE TABLE IF NOT EXISTS 
 );', (err) => {
     if (err) return console.error(err.message);
 
-});
+})}
 
-
-const creatingTableInventory = () => database.query('create table IF NOT EXISTS inventory (\
+const creatingTableInventoryTeste = () => { databaseTeste.query('create table IF NOT EXISTS inventory (\
     id_item INTEGER AUTO_INCREMENT PRIMARY KEY,\
     ID_COMPANY INTEGER NOT NULL UNIQUE,\
     NAME_ITEM VARCHAR(255) NOT NULL,\
@@ -27,7 +26,10 @@ const creatingTableInventory = () => database.query('create table IF NOT EXISTS 
     QNT_MIN_ITEM INTEGER\
     );', (err) => {
     if (err) return console.error(err.message)
-})
+})}
 
 
-export { database, creatingTableCompanies, creatingTableInventory }
+
+
+
+export { databaseTeste, creatingTableCompaniesTeste, creatingTableInventoryTeste }
