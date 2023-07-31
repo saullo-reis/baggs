@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import sha256 from "sha256";
-import { connectionDatabase } from "../Database/index";
+import { connectionDatabase } from "../../Database/index";
 import { StatusCodes } from 'http-status-codes'
 
 const connection = connectionDatabase()
 
-function checkEmailExist(email: string): Promise<boolean> {
+export function checkEmailExist(email: string): Promise<boolean> {
     const query = 'SELECT EMAIL FROM companies WHERE EMAIL = ?'
 
     return new Promise((resolve, reject) => {
@@ -20,7 +20,7 @@ function checkEmailExist(email: string): Promise<boolean> {
     })
 }
 
-function checkPasswordIsCorrect(email: string, password: string): Promise<boolean> {
+export function checkPasswordIsCorrect(email: string, password: string): Promise<boolean> {
     const query = 'SELECT PASSWORD FROM companies WHERE email = ?'
 
     return new Promise((resolve, reject) => {
@@ -30,7 +30,7 @@ function checkPasswordIsCorrect(email: string, password: string): Promise<boolea
                 reject(err)
             }
 
-            resolve(password === results[0].password)
+            resolve(password === results[0].PASSWORD)
         })
     })
 

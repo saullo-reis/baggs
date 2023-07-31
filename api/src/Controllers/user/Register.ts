@@ -1,5 +1,5 @@
 import {Request, Response} from "express"
-import { connectionDatabase } from "../Database/index"
+import { connectionDatabase } from "../../Database/index"
 import sha256 from 'sha256'
 import { StatusCodes } from "http-status-codes";
 
