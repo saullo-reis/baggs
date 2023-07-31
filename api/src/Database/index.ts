@@ -5,12 +5,8 @@ function connectionDatabase(){
     if(process.env.NODE_ENV === 'test'){
         return databaseTeste
     }
-
-    database.connect()
-
-    creatingTableCompanies
-    creatingTableInventory
-    
+    creatingTableCompanies()
+    creatingTableInventory()
     return database
 }
 
