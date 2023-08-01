@@ -4,6 +4,7 @@ import { register } from '../Controllers/user/Register'
 import { registerItem } from '../Controllers/inventory/RegisterItem'
 import { deleteItem } from '../Controllers/inventory/DeleteItem'
 import { changeQnt } from '../Controllers/inventory/ChangeQnt'
+import { changeQntMin } from '../Controllers/inventory/ChangeQntMin'
 
 const router = Router()
 
@@ -16,5 +17,6 @@ router.get('/login', login)
 router.post('/registerItem', registerItem)
 router.delete('/deleteItem', deleteItem)
 router.put('/changeQnt', changeQnt)
+router.put('/changeQntMin', changeQntMin)
 
 export {router}
