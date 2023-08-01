@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RESET_CONTENT, StatusCodes } from "http-status-codes";
+import { StatusCodes } from "http-status-codes";
 import { connectionDatabase } from "../../Database";
 
 const database = connectionDatabase()
